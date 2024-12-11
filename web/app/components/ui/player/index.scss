@@ -1,0 +1,66 @@
+@import "../../../styles/variables";
+// @import 'timeline-controls';
+
+.video-wrapper {
+  height: 100%;
+  // &:fullscreen {
+  //   .inner {
+  //     aspect-ratio: unset;
+  //     height: 100%;
+  //     width: 100%;
+  //   }
+  // }
+  max-height: calc(var(--vh) * 100);
+  overflow: hidden;
+
+  .react-player {
+    // pointer-events: none;
+  }
+  &.is-pause .btn-pause svg rect {
+    fill: white;
+  }
+  &.is-playing {
+    .btn-play svg path {
+      fill: white;
+    }
+  }
+
+  .play-pause-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    cursor: pointer;
+    // cursor: url("data:image/svg+xml,%3Csvg width='73' height='90' viewBox='0 0 73 90' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M73 45.1134L-3.93402e-06 90L0 -3.19093e-06L73 45.1134Z' fill='%2314182D'/%3E%3C/svg%3E%0A")
+    //     36 45,
+    //   pointer;
+
+    .icon-play {
+      cursor: url("data:image/svg+xml;charset=UTF-8,%3csvg width='42' height='48' viewBox='0 0 42 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M41 22.268C42.3333 23.0378 42.3333 24.9623 41 25.7321L3.5 47.3827C2.16667 48.1525 0.499998 47.1902 0.499998 45.6506L0.5 2.34936C0.5 0.809758 2.16667 -0.152488 3.5 0.617312L41 22.268Z' fill='white'/%3e%3c/svg%3e")
+          25 21,
+        pointer;
+    }
+  }
+
+  .controls {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    .cartouche {
+      padding: 0.1em 0.2em;
+    }
+    svg {
+      fill: black;
+    }
+  }
+  .toggle-muted {
+    position: absolute;
+    right: var(--space-xs);
+    bottom: var(--space-sm);
+    font-size: var(--text-xs);
+    z-index: 2;
+  }
+}

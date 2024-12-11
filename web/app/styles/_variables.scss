@@ -1,0 +1,75 @@
+/* BASE VARIABLES
+ *******************/
+:root {
+  --app-height: 100vh;
+  --header-height: 43.5px;
+  --color-bg: #fff;
+  --color-primary: #000;
+  --color-secondary: #fff;
+  --color-hover: #006d75;
+  --color-muted: #999999;
+  // --color-green: #006d75;
+  --color-accent: #8ea965;
+
+  --font-primary: "NTBau-Regular", "Helvetica Neue", "HelveticaNeueRoman",
+    "HelveticaNeue-Roman", "Helvetica Neue Roman", "TeXGyreHerosRegular",
+    "Helvetica", "Arial", sans-serif;
+  --font-primary-mono: "NTBau-Mono-Regular", "Helvetica Neue",
+    "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman",
+    "TeXGyreHerosRegular", "Helvetica", "Arial", sans-serif;
+  --font-secondary: "VCGosh-Bold", "Helvetica Neue", "HelveticaNeueRoman",
+    "HelveticaNeue-Roman", "Helvetica Neue Roman", "TeXGyreHerosRegular",
+    "Helvetica", "Arial", sans-serif;
+
+  --space-xs: 0.4em; //5
+  --space-sm: 0.625em; //10
+  --space-md: 1.25rem; //20
+  --space-lg: 1.875rem; //30
+  --space-50: 3.125rem; //30
+  --space-xl: 3.75rem; //60
+  --space-xxl: 6.25rem; //100
+
+  --space-m-md: 1.25rem; //20
+
+  // --text-md-mobile: 1rem; //16px
+
+  // --text-xs: 0.73333333rem; //11px
+  --text-sm: 0.86666667rem; //13px
+  --text-md: 1.25rem; //16px
+  --text-lg: 1.25rem; // 20
+  --text-2lg: 1.875rem; // 30
+  --text-xl: 3.125rem; // 50
+
+  --text-m-sm: 0.86666667rem;
+  --text-m-md: 1.333rem;
+  --text-m-lg: 1.333rem;
+  --text-m-2lg: 1.667rem;
+  --text-m-xl: 1.917rem;
+  /*
+  xs: 8pt 10px
+  md: 12pt 16px
+  lg: 18pt 24px
+  xl: 30pt 40px
+  */
+
+  // --cubic: cubic-bezier(0.53, 0, 0.36, 1);
+  --cubic: cubic-bezier(0.775, 0, 0.17, 1.005);
+
+  // --text-xl: clamp(26px, 5.21vw, 75px);
+
+  --border-width: 1px;
+  --border: var(--border-width) solid;
+  --border-width-lg: 2px;
+  --border-lg: var(--border-width-lg) solid;
+
+  --gutter: 20px;
+
+  --screen-sm: 768px;
+  --screen-md: 1080px;
+  --screen-lg: 1441px;
+}
+
+/* Breakpoints */
+$sm: 768px;
+$md: 1080px;
+$lg: 1441px;

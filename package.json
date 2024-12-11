@@ -1,0 +1,19 @@
+{
+  "name": "lome-studio",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:ahmedghazi/lome-studio.git",
+  "author": "ahmedghazi <atmet.ghazi@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "s": "cd studio && yarn dev",
+    "w": "cd web && yarn dev",
+    "d": "git add . && git commit -m 'let s gooo' && git push",
+    "d:p": "git add . && git commit -m 'fix' && git push origin preprod",
+    "d:preprod": "git add . && git commit -m 'fix' && git push origin preprod",
+    "dm": "func() { git add . && git commit -m \"$1\" && git push; }; func",
+    "dm:preprod": "func() { git add . && git commit -m \"$1\" && git push origin preprod; }; func",
+    "c:w": "cd web && graphql-codegen --watch 'src/**/*.{ts,tsx}'"
+  }
+}

@@ -1,0 +1,18 @@
+footer {
+  position: relative;
+  padding: var(--space-50);
+  z-index: 1;
+  background-color: white;
+  color: black;
+  font-family: var(--font-primary-mono);
+  .logo {
+    width: 230px;
+    max-width: 100%;
+    margin: auto;
+  }
+
+  @media all and (max-width: $md) {
+    padding: var(--space-50) var(--space-md);
+    text-align: center;
+  }
+}

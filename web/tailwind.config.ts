@@ -1,0 +1,65 @@
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    screens: {
+      sm: "768px",
+      md: "1080px",
+      lg: "1600px",
+    },
+    spacing: {
+      "0": "0",
+      "02e": "0.2em",
+      "05e": "0.5em",
+      1: "1px",
+      "1e": "1em",
+      "1re": "1rem",
+      xs: "var(--space-xs)",
+      sm: "var(--space-sm)",
+      md: "var(--space-md)",
+      lg: "var(--space-lg)",
+      xl: "var(--space-xl)",
+      "m-md": "var(--space-m-md)",
+      gutter: "var(--gutter)",
+      "header-height": "var(--header-height)",
+      50: "var(--space-50)",
+    },
+    colors: {
+      black: "black",
+      white: "white",
+      red: "var(--color-red)",
+      blue: "var(--color-blue)",
+      "blue-alt": "var(--color-blue-alt)",
+      gray: "var(--color-gray)",
+      "gray-alt": "var(--color-gray-alt)",
+      yellow: "var(--color-yellow)",
+      green: "var(--color-green)",
+      accent: "var(--color-accent)",
+    },
+    fontSize: {
+      sm: ["var(--text-sm)", "1.1"],
+      md: ["var(--text-md)", "1.0666667"],
+      lg: ["var(--text-lg)", "1.25"],
+      "2lg": ["var(--text-2lg)", "1.1"],
+      xl: ["var(--text-xl)", "1"],
+      "m-sm": ["var(--text-m-sm)", "1.1"],
+      "m-md": ["var(--text-m-md)", "1.0666667"],
+      "m-lg": ["var(--text-m-lg)", "1.25"],
+      "m-2lg": ["var(--text-m-2lg)", "1.1"],
+      "m-xl": ["var(--text-m-xl)", "1"],
+    },
+    fontFamily: {
+      primary: ["var(--font-primary)"],
+      "primary-mono": ["var(--font-primary-mono)"],
+      secondary: ["var(--font-secondary)"],
+      // "primary-700": ["var(--primary-150)"],
+    },
+  },
+  plugins: [],
+};
+export default config;

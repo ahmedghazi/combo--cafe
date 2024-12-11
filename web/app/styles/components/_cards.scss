@@ -1,0 +1,15 @@
+// .card {
+//   &:hover {
+//     color: var(--color-muted);
+//   }
+// }
+
+.card--studio {
+  cursor: pointer;
+  transition: padding-bottom 0.3s;
+  img {
+    aspect-ratio: 1 / 1;
+    height: 100%;
+    object-fit: cover;
+  }
+}

@@ -1,0 +1,59 @@
+.timeline-controls {
+  flex: 2;
+  background-color: black;
+  color: white;
+  opacity: 1;
+  pointer-events: none;
+  padding: 0 0.625rem;
+  &.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .timeline {
+    height: 1.563rem;
+    background: black;
+    cursor: pointer;
+    // &:hover{
+    //   height: 10px;
+    // }
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0.656rem;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: white;
+      // cursor: pointer;
+    }
+    .timeline--loaded,
+    .timeline--played- {
+      width: 0;
+      height: 100%;
+    }
+    .timeline--loaded {
+      background: white;
+    }
+    .timeline--played {
+      background: white;
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      top: 0.469rem;
+      left: 0;
+      transform: translateX(-50%);
+      // transform: translateX(50%);
+    }
+  }
+  .timecode {
+    text-align: center;
+  }
+}
+
+@media all and (max-width: 1080px) {
+  .timeline-controls {
+    // bottom: 10px;
+    // .fL{font-size: $fontS;}
+  }
+}

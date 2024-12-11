@@ -1,0 +1,130 @@
+.cartouche {
+  padding: 0.4em toRem(20);
+  font-family: var(--font-primary-mono);
+  background-color: white;
+  color: black;
+  font-size: var(--text-lg);
+  text-transform: uppercase;
+  // background-color: red;
+  &--sm {
+    padding: 0.4em 1em;
+    font-size: var(--text-sm);
+  }
+}
+.btn--pill {
+  border: var(--border);
+  padding: 0 toRem(60) 0.1em;
+  border-radius: 2em;
+  text-align: center;
+  display: inline-block;
+  height: var(--space-50);
+  line-height: calc(var(--space-50) * 0.9);
+  text-transform: uppercase;
+  transition: background-color 0.2s, color 0.2s;
+  font-size: var(--text-lg);
+  font-family: var(--font-primary-mono);
+  &:hover {
+    background-color: white;
+    color: black;
+  }
+
+  @media all and (max-width: $md) {
+    font-size: var(--text-m-md);
+    padding: 0 2em;
+  }
+}
+
+.grid-card {
+  padding: var(--space-50);
+  @media all and (max-width: $md) {
+    padding: var(--space-m-md);
+  }
+  .card {
+    margin-bottom: var(--space-50);
+  }
+}
+.card {
+  position: relative;
+  .inner {
+    display: grid;
+    gap: var(--space-lg);
+    // pointer-events: none;
+    .content {
+      display: grid;
+      gap: var(--space-lg);
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .cartouche {
+          display: block;
+        }
+      }
+    }
+  }
+  h3 {
+    font-size: var(--text-2lg);
+    @media all and (max-width: $md) {
+      font-size: var(--text-m-2lg);
+    }
+  }
+  &--studio {
+    &:hover {
+      .overlay {
+        opacity: 1;
+      }
+    }
+    button:hover {
+      background-color: white;
+      color: black;
+    }
+    .overlay {
+      opacity: 0;
+      position: absolute;
+      inset: 0;
+      overflow: clip;
+      button {
+        z-index: 1;
+        @include center_it;
+      }
+    }
+  }
+}
+
+.summary-detail {
+  .summary {
+    padding: toRem(30) 0 toRem(20);
+    .icon-arrow {
+      position: absolute;
+      right: var(--space-50);
+    }
+
+    .title {
+      text-align: center;
+      text-transform: uppercase;
+
+      h2 {
+        margin: 0;
+        line-height: 1;
+      }
+    }
+  }
+  @media all and (max-width: $md) {
+    .summary {
+      .icon-arrow {
+        right: var(--space-lg);
+        svg {
+          width: auto;
+          height: var(--text-m-xl);
+        }
+      }
+    }
+  }
+}
+
+.bg-blend {
+  background-color: var(--color-accent);
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: multiply;
+}
