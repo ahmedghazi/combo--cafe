@@ -71,7 +71,12 @@ const Footer = ({ settings }: Props) => {
               {settings.navSecondary?.map((item, i) => (
                 <li key={i}>
                   {item.link && item.label && item._type === "linkExternal" && (
-                    <a href={item.link}>{item.label}</a>
+                    <a
+                      href={item.link}
+                      target='_blank'
+                      rel='noopener noreferrer'>
+                      {item.label}
+                    </a>
                   )}
                 </li>
               ))}

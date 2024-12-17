@@ -11,7 +11,7 @@ import {presentationTool} from 'sanity/presentation'
 import {linkResolver} from './src/linkResolver'
 
 const devOnlyPlugins = [getStartedPlugin()]
-const remoteURL = 'https://combo-factory.vercel.app'
+const remoteURL = 'https://combo-café.vercel.app'
 const localURL = 'http://localhost:3000'
 const previewURL = window.location.hostname === 'localhost' ? localURL : remoteURL
 

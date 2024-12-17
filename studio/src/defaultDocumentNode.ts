@@ -2,7 +2,7 @@ import {type DefaultDocumentNodeResolver} from 'sanity/structure'
 import {Iframe} from 'sanity-plugin-iframe-pane'
 import {type SanityDocument} from 'sanity'
 
-const remoteURL = 'https://combo-factory.vercel.app/'
+const remoteURL = 'https://combo-cafe.vercel.app/'
 const localURL = 'http://localhost:3000/'
 const previewURL = window.location.hostname === 'localhost' ? localURL : remoteURL
 
