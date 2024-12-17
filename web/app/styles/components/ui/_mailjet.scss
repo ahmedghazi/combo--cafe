@@ -1,6 +1,8 @@
 .mailjet {
   .title {
-    text-align: right;
+    @media all and (min-width: $md) {
+      text-align: right;
+    }
     margin-bottom: 1em;
   }
   form {
@@ -10,7 +12,10 @@
   }
   .flex {
     border: var(--border);
-    width: toRem(268);
+    width: 100%;
+    @media all and (min-width: $md) {
+      max-width: toRem(268);
+    }
   }
 
   input {

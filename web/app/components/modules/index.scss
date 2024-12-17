@@ -46,7 +46,9 @@
             text-align: center;
           }
           .text {
-            column-count: 2;
+            @media all and (min-width: $md) {
+              column-count: 2;
+            }
             max-width: unset;
             h3:first-of-type {
               -webkit-column-break-before: always;
