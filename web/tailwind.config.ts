@@ -40,6 +40,8 @@ const config: Config = {
       yellow: "var(--color-yellow)",
       green: "var(--color-green)",
       accent: "var(--color-accent)",
+      primary: "var(--color-primary)",
+      secondary: "var(--color-secondary)",
     },
     fontSize: {
       sm: ["var(--text-sm)", "1.1"],

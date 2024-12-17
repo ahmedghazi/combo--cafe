@@ -1,0 +1,33 @@
+.mailjet {
+  .title {
+    text-align: right;
+    margin-bottom: 1em;
+  }
+  form {
+    display: flex;
+    justify-content: flex-end;
+    font-family: var(--font-primary-mono);
+  }
+  .flex {
+    border: var(--border);
+    width: toRem(268);
+  }
+
+  input {
+    border: none;
+    padding: toRem(14) var(--space-lg);
+
+    &::placeholder {
+      color: var(--color-primary);
+    }
+  }
+  button {
+    font-style: unset;
+    font-weight: unset;
+    padding: 0 1em;
+  }
+
+  .status {
+    text-align: right;
+  }
+}

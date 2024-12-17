@@ -1,0 +1,13 @@
+.cookies {
+  z-index: 2;
+  position: fixed;
+  bottom: 0;
+  left: var(--space-50);
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  border: var(--border);
+  width: 50%;
+  .inner {
+    padding: var(--space-md);
+  }
+}

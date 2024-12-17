@@ -7,6 +7,7 @@ import { getSettings } from "./utils/sanity-queries";
 import { PageContextProvider } from "./context/PageContext";
 import { LocaleContextProvider } from "./context/LocaleContext";
 import Cursor from "./components/ui/Cursor";
+import CookieConsent from "./components/ui/CookieConsent";
 
 export const metadata = {
   metadataBase: new URL(website.url),
@@ -24,16 +25,17 @@ export default async function RootLayout({
   const settings = await getSettings();
 
   return (
-    <html lang="fr">
+    <html lang='fr'>
       <body className={""}>
         {/* <PageTransition> */}
         <LocaleContextProvider>
           <PageContextProvider>
-            <div id="page">
+            <div id='page'>
               <Header settings={settings} />
               <main>{children}</main>
               <Footer settings={settings} />
-              <Cursor color="#fff" size={10} />
+              <Cursor color='#fff' size={10} />
+              <CookieConsent />
             </div>
           </PageContextProvider>
         </LocaleContextProvider>
