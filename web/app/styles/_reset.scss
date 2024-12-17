@@ -308,11 +308,15 @@ img[data-sizes="auto"] {
 
 ::-moz-selection {
   /* Code for Firefox */
-  color: blue;
+  // color: blue;
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
 }
 
 ::selection {
-  color: blue;
+  // color: blue;
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
 }
 
 iframe {
