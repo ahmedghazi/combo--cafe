@@ -18,7 +18,7 @@ export async function POST(req: NextRequest, res: NextApiResponse) {
   try {
     const { data } = await req.json(); // res now contains body
     const { email } = data;
-    console.log(email);
+    console.log({ email });
 
     const newContact = await createContact(email);
     if (newContact.statusCode !== 200) {
