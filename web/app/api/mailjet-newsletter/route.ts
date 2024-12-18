@@ -62,7 +62,7 @@ const createContact = async (email: string, name?: string) => {
     console.info("result mailjet create contact", body);
     return {
       statusCode: 200,
-      Data: body.Data,
+      Data: body,
     };
   } catch (error: any) {
     // console.error(error);
@@ -85,7 +85,7 @@ const addEmailToList = async (email: string, listId: string) => {
     // console.info("result mailjet add to list", body);
     return {
       statusCode: 200,
-      Data: body.Data,
+      Data: body,
     };
   } catch (error: any) {
     // console.error(error);
