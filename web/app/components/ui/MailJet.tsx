@@ -90,7 +90,7 @@ const Mailchimp = (props: Props) => {
       if (res.ok) {
         setStatus("success");
       } else {
-        setStatus("error");
+        setStatus(data);
       }
     } catch (error: any) {
       console.log(error);
