@@ -64,7 +64,7 @@ const Mailchimp = (props: Props) => {
 
     // const email = state["EMAIL"]
 
-    validateEmail(email) ? sendData(url) : setStatus("empty");
+    validateEmail(email) ? sendData() : setStatus("empty");
   };
 
   const validateEmail = (email: string) => {
@@ -92,29 +92,10 @@ const Mailchimp = (props: Props) => {
       } else {
         setStatus("error");
       }
-      // if (setSearchResult) setSearchResult(data);
-      // document.body.classList.remove("is-fetching");
     } catch (error: any) {
       console.log(error);
       setStatus("error");
     }
-
-    // jsonp(url, { param: "c" }, (err: any, data: any) => {
-    //   // console.log(err);
-    //   // console.log(data);
-    //   if (data.msg.includes("already subscribed")) {
-    //     setStatus("duplicate");
-    //   } else if (err) {
-    //     setStatus("error");
-    //   } else if (data.result !== "success") {
-    //     setStatus("error");
-    //   } else {
-    //     setStatus("success");
-    //     setTimeout(() => {
-    //       publish("NEWSLETTER_TOGGLE", false);
-    //     }, 2000);
-    //   }
-    // });
   };
 
   return (
