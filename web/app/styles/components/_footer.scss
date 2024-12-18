@@ -14,5 +14,8 @@ footer {
   @media all and (max-width: $md) {
     padding: var(--space-50) var(--space-md);
     text-align: center;
+    .text {
+      max-width: unset;
+    }
   }
 }
