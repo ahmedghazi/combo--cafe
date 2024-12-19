@@ -10,4 +10,10 @@
   .inner {
     padding: var(--space-md);
   }
+
+  @media all and (max-width: $md) {
+    width: calc(100% - var(--space-md) * 2);
+    right: var(--space-md);
+    left: var(--space-md);
+  }
 }
