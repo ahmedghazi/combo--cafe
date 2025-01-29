@@ -55,7 +55,7 @@ const Footer = ({ settings }: Props) => {
           )}
         </div>
         <nav id='nav-secondary'>
-          <div className='mb-md '>
+          {/* <div className='mb-md '>
             <MailJet
               action='https://xxx.us11.list-manage.com/subscribe/post?u=7ec729474c5f3671662bdeda0&id=5530cd0b9b&f_id=00fdafe0f0&tags=123'
               field={{
@@ -65,7 +65,7 @@ const Footer = ({ settings }: Props) => {
                 required: true,
               }}
             />
-          </div>
+          </div> */}
           <AOS delay={1}>
             <ul className='flex flex-col md:items-end'>
               {settings.navSecondary?.map((item, i) => (

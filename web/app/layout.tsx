@@ -35,7 +35,7 @@ export default async function RootLayout({
               <main>{children}</main>
               <Footer settings={settings} />
               <Cursor color='#fff' size={10} />
-              <CookieConsent legals={settings.legalsUrl} />
+              {/* <CookieConsent legals={settings.legalsUrl} /> */}
             </div>
           </PageContextProvider>
         </LocaleContextProvider>
