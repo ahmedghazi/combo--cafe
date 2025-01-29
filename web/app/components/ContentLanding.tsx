@@ -9,7 +9,7 @@ type Props = {
 const ContentLanding = ({ input }: Props) => {
   return (
     <div className='content content--landing'>
-      {input.modules && <Modules input={input.modules} />}
+      {/* {input.modules && <Modules input={input.modules} />} */}
     </div>
   );
 };

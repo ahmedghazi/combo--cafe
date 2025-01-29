@@ -44,8 +44,7 @@ const HomePage: ({ params }: PageProps) => Promise<JSX.Element> = async ({
   // console.log(data);
   if (!data) return <div>please edit page</div>;
   return (
-    <div className="template template--home" data-template="home">
-      {/* <ContentLanding input={data} /> */}
+    <div className='template template--home' data-template='home'>
       {data.modules && <ContentModulaire modules={data.modules} />}
     </div>
   );
