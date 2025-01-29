@@ -47,6 +47,13 @@ export async function getSettings(): Promise<Settings> {
         ...,
 			  asset->
       },
+      legalsUrl{
+        ...,
+        link->{
+          _type,
+          slug,
+        }
+      }
     }`
   );
 }

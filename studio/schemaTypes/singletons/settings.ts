@@ -138,6 +138,12 @@ export default defineType({
       type: 'localeBlockContent',
       group: 'misc',
     }),
+    defineField({
+      name: 'legalsUrl',
+      title: 'Page de mentions légales',
+      type: 'linkInternal',
+      group: 'misc',
+    }),
 
     defineField({
       name: 'customCss',

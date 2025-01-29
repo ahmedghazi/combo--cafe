@@ -1,8 +1,15 @@
 "use client";
 import React from "react";
 import { hasCookie, setCookie, deleteCookie } from "cookies-next";
+import { LinkInternal } from "@/app/types/schema";
+import Link from "next/link";
+import { _linkResolver, _localizeField } from "@/app/utils/utils";
 
-const CookieConsent = () => {
+type Props = {
+  legals?: LinkInternal;
+};
+
+const CookieConsent = ({ legals }: Props) => {
   const [showConsent, setShowConsent] = React.useState<
     boolean | Promise<boolean>
   >(true);
@@ -31,7 +38,12 @@ const CookieConsent = () => {
       <div className='inner '>
         <div className='mb-md'>
           Ce site internet utilise des cookies. Nous utilisons des cookies sur
-          notre site pour améliorer votre expérience de navigation
+          notre site pour améliorer votre expérience de navigation.{" "}
+          {legals && (
+            <Link href={_linkResolver(legals.link)}>
+              {_localizeField(legals.label)}
+            </Link>
+          )}
         </div>
         <div className='flex gap-1e'>
           <button

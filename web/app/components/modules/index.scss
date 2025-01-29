@@ -228,6 +228,7 @@
         object-fit: cover;
         @media all and (max-width: $md) {
           height: calc(var(--vh) * 70 - var(--header-height));
+          object-position: center center;
         }
       }
       .title {
