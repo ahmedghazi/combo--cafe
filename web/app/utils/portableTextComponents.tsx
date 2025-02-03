@@ -7,19 +7,6 @@ import Figure from "../components/ui/Figure";
 import { VideoWrapper } from "../components/ui/player";
 
 const portableTextComponents: PortableTextComponents = {
-  // block(props) {
-  //   console.log(props)
-  //   switch (props.node?.style) {
-  //     case "h2":
-  //       return <h2>{props.children}</h2>
-  //     case "text-lg":
-  //       return <p className="text-lg">{props.children}</p>
-  //     case "text-xl":
-  //       return <p className="text-xl">{props.children}</p>
-  //     default:
-  //       return <p>{props.children}</p>
-  //   }
-  // },
   block: {
     h2: ({ children }) => <h2>{children}</h2>,
     "h2 text-lg": ({ children }) => (
