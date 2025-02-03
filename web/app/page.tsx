@@ -6,7 +6,7 @@ import { Home } from "./types/schema";
 import { getClient } from "./utils/sanity-client";
 import ContentModulaire from "./components/ContentModulaire";
 
-export const revalidate = 3600; // revalidate every hour
+export const revalidate = 60; // revalidate every hour
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
