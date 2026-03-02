@@ -11,7 +11,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import LinkTransition from "./ui/LinkTransition";
 import clsx from "clsx";
-import { _linkResolver, _localizeField } from "../sanity-api/utils";
+import { _linkResolver, _localizeField } from "../lib/utils";
 
 type NavLinkProps = {
   href: string;

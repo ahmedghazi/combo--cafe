@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { LogosUI } from "@/app/types/schema";
 import Figure from "../ui/Figure";
 import AOS from "../ui/AOS";
-import { _localizeField } from "@/app/sanity-api/utils";
+import { _localizeField } from "@/app/lib/utils";
 
 type Props = {
   input: LogosUI;

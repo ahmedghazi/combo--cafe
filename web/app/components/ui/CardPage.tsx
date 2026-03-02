@@ -11,7 +11,7 @@ import {
   _linkResolver,
   _localizeField,
   _localizeText,
-} from "@/app/sanity-api/utils";
+} from "@/app/lib/utils";
 import AOS from "./AOS";
 import { subscribe } from "pubsub-js";
 import Link from "next/link";

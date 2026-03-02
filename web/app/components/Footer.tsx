@@ -3,11 +3,10 @@ import React from "react";
 import { Settings } from "../types/schema";
 import Image from "next/image";
 import { PortableText } from "next-sanity";
-import { _localizeField } from "../utils/utils";
-import portableTextComponents from "../utils/portableTextComponents";
 import AOS from "./ui/AOS";
-import MailJet from "./ui/MailJet";
 import { urlFor } from "../sanity-api/sanity-utils";
+import portableTextComponents from "../sanity-api/portableTextComponents";
+import { _localizeField } from "../lib/utils";
 
 type Props = {
   settings: Settings;

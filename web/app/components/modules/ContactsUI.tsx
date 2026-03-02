@@ -2,7 +2,7 @@ import { ContactsUI } from "@/app/types/schema";
 import { PortableText } from "next-sanity";
 import React from "react";
 import AOS from "../ui/AOS";
-import { _localizeField } from "@/app/sanity-api/utils";
+import { _localizeField } from "@/app/lib/utils";
 import portableTextComponents from "@/app/sanity-api/portableTextComponents";
 
 type Props = {

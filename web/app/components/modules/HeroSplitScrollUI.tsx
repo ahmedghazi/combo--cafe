@@ -5,7 +5,7 @@ import Image from "next/image";
 import useDeviceDetect from "@/app/hooks/useDeviceDetect";
 // import { infinitScrollOnePage } from "@/app/lib/infinite-scroll-plugin-one-page";
 import { urlFor } from "@/app/sanity-api/sanity-utils";
-import { infinitScrollOnePage } from "@/app/utils/infinite-scroll-plugin-one-page";
+import { infinitScrollOnePage } from "@/app/lib/infinite-scroll-plugin-one-page";
 
 type Props = {
   input: HeroSplitScrollUI;

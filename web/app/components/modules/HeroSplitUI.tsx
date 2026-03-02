@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Figure, HeroSplitScrollUI, HeroSplitUI } from "@/app/types/schema";
 import { urlFor } from "@/app/sanity-api/sanity-utils";
 import Image from "next/image";
-import { _localizeField } from "@/app/sanity-api/utils";
+import { _localizeField } from "@/app/lib/utils";
 import AOS from "../ui/AOS";
 import useDeviceDetect from "@/app/hooks/useDeviceDetect";
 

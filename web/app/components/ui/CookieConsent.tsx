@@ -3,7 +3,7 @@ import React from "react";
 import { hasCookie, setCookie, deleteCookie } from "cookies-next";
 import { LinkInternal } from "@/app/types/schema";
 import Link from "next/link";
-import { _linkResolver, _localizeField } from "@/app/sanity-api/utils";
+import { _linkResolver, _localizeField } from "@/app/lib/utils";
 
 type LegalslinkProps = {
   input: LinkInternal;

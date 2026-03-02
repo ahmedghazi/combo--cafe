@@ -5,7 +5,7 @@ import { TextImageUI } from "@/app/types/schema";
 import { SanityImageAsset } from "sanity-codegen";
 import AOS from "../ui/AOS";
 import Image from "next/image";
-import { _localizeField } from "@/app/sanity-api/utils";
+import { _localizeField } from "@/app/lib/utils";
 import portableTextComponents from "@/app/sanity-api/portableTextComponents";
 import { urlFor } from "@/app/sanity-api/sanity-utils";
 

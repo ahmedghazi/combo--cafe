@@ -1,5 +1,5 @@
 import { SliderCardImageTextUI } from "@/app/types/schema";
-import { _localizeField } from "@/app/sanity-api/utils";
+import { _localizeField } from "@/app/lib/utils";
 import React from "react";
 import Slider from "../ui/slick-slider";
 import Card from "../ui/Card";

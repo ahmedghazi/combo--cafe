@@ -1,7 +1,7 @@
 import { ListLieuUI } from "@/app/types/schema";
 import React from "react";
 import SummaryDetailFramer from "../ui/SummaryDetailFramer";
-import { _localizeField } from "@/app/sanity-api/utils";
+import { _localizeField } from "@/app/lib/utils";
 import ContentModulaire from "../ContentModulaire";
 import AOS from "../ui/AOS";
 

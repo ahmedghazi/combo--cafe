@@ -2,9 +2,9 @@ import { PortableTextComponents } from "@portabletext/react";
 import { urlFor } from "./sanity-utils";
 import Image from "next/image";
 import Link from "next/link";
-import { _linkResolver } from "./utils";
 import Figure from "../components/ui/Figure";
 import { VideoWrapper } from "../components/ui/player";
+import { _linkResolver } from "../lib/utils";
 
 const portableTextComponents: PortableTextComponents = {
   // block(props) {

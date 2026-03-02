@@ -2,7 +2,7 @@ import React, { useMemo, useState } from "react";
 import { ListPageUI, SanityKeyedReference, Tag } from "@/app/types/schema";
 import clsx from "clsx";
 import CardPage from "../ui/CardPage";
-import { _localizeField } from "@/app/sanity-api/utils";
+import { _localizeField } from "@/app/lib/utils";
 
 type Props = {
   input: ListPageUI;

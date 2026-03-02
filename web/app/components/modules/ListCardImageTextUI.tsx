@@ -4,7 +4,7 @@ import {
   SanityKeyedReference,
   Tag,
 } from "@/app/types/schema";
-import { _localizeField } from "@/app/sanity-api/utils";
+import { _localizeField } from "@/app/lib/utils";
 import React, { useState } from "react";
 import Card from "../ui/Card";
 import AOS from "../ui/AOS";
