@@ -121,12 +121,12 @@ p,
       overflow: hidden;
       max-width: 100%;
     }
-    &:not(.btn--pill) {
-      span,
-      &::after {
-        // display: inline-block;
-      }
-    }
+    // &:not(.btn--pill) {
+    //   span,
+    //   &::after {
+    //     // display: inline-block;
+    //   }
+    // }
     &:not(.btn--pill)::after {
       // content: "↗";
       display: inline-block;
