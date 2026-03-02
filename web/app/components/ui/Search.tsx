@@ -6,7 +6,7 @@
 //   useState,
 // } from "react";
 // import { usePageContext } from "@/app/context/PageContext";
-// import { _localizeText } from "@/app/utils/utils";
+// import { _localizeText } from "@/app/sanity-api/utils";
 // import { usePathname } from "next/navigation";
 // // import debounce from "lodash.debounce";
 

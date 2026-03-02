@@ -29,6 +29,9 @@ export const PageContextProvider = (props: PageContextProps) => {
 
   useEffect(() => {
     _format();
+    setTimeout(() => {
+      _format();
+    }, 150);
     window.addEventListener("resize", _format);
 
     return () => {
@@ -49,8 +52,8 @@ export const PageContextProvider = (props: PageContextProps) => {
       headerBounding = header.getBoundingClientRect();
 
       document.documentElement.style.setProperty(
-        "--header-height",
-        headerBounding.height + "px"
+        "--header-h",
+        headerBounding.height + "px",
       );
     }
   };

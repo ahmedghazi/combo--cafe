@@ -1,11 +1,11 @@
 import {defineField} from 'sanity'
-import {BiImages} from 'react-icons/bi'
+import {BsLayoutThreeColumns} from 'react-icons/bs'
 
 export default defineField({
-  name: 'moduleImages',
+  name: 'imagesUI',
   title: 'Image(s)',
   type: 'object',
-  icon: BiImages,
+  icon: BsLayoutThreeColumns,
   fields: [
     defineField({
       name: 'title',
@@ -25,15 +25,15 @@ export default defineField({
 
   preview: {
     select: {
-      image: 'items.0',
       title: 'title',
+      items: 'items',
     },
     prepare(selection) {
-      const {title, image} = selection
+      const {title, items} = selection
       return {
         title: title,
-        subtitle: 'Image(s)',
-        media: image,
+        subtitle: `Image(s) UI ${items.length} items`,
+        media: items?.[0].image,
       }
     },
   },

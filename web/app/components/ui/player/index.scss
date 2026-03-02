@@ -1,4 +1,4 @@
-@import "../../../styles/variables";
+@use "../../../styles/variables";
 // @import 'timeline-controls';
 
 .video-wrapper {
@@ -38,7 +38,8 @@
     //   pointer;
 
     .icon-play {
-      cursor: url("data:image/svg+xml;charset=UTF-8,%3csvg width='42' height='48' viewBox='0 0 42 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M41 22.268C42.3333 23.0378 42.3333 24.9623 41 25.7321L3.5 47.3827C2.16667 48.1525 0.499998 47.1902 0.499998 45.6506L0.5 2.34936C0.5 0.809758 2.16667 -0.152488 3.5 0.617312L41 22.268Z' fill='white'/%3e%3c/svg%3e")
+      cursor:
+        url("data:image/svg+xml;charset=UTF-8,%3csvg width='42' height='48' viewBox='0 0 42 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M41 22.268C42.3333 23.0378 42.3333 24.9623 41 25.7321L3.5 47.3827C2.16667 48.1525 0.499998 47.1902 0.499998 45.6506L0.5 2.34936C0.5 0.809758 2.16667 -0.152488 3.5 0.617312L41 22.268Z' fill='white'/%3e%3c/svg%3e")
           25 21,
         pointer;
     }
@@ -58,8 +59,8 @@
   }
   .toggle-muted {
     position: absolute;
-    right: var(--space-xs);
-    bottom: var(--space-sm);
+    right: var(--spacing-xs);
+    bottom: var(--spacing-sm);
     font-size: var(--text-xs);
     z-index: 2;
   }

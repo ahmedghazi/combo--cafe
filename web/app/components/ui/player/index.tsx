@@ -217,7 +217,7 @@ const VideoWrapper: React.FC<InputProps> = ({
         className={clsx(
           "video-wrapper bg-black h-full ",
           autoplay && "is-autoplay",
-          video.playing ? "is-playing" : "is-pause"
+          video.playing ? "is-playing" : "is-pause",
         )}
         ref={ref}>
         {url && (
@@ -227,7 +227,7 @@ const VideoWrapper: React.FC<InputProps> = ({
             <ReactPlayer
               ref={playerRef}
               className={clsx(
-                "react-player"
+                "react-player",
                 // autoplay ? "pointer-events-none" : ""
               )}
               url={url}

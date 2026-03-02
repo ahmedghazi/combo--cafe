@@ -1,17 +1,17 @@
-import React from "react";
-import { Landing } from "../types/schema";
-import Modules from "./modules";
+// import React from "react";
+// import { Landing } from "../types/schema";
+// import Modules from "./modules";
 
-type Props = {
-  input: Landing;
-};
+// type Props = {
+//   input: Landing;
+// };
 
-const ContentLanding = ({ input }: Props) => {
-  return (
-    <div className='content content--landing'>
-      {/* {input.modules && <Modules input={input.modules} />} */}
-    </div>
-  );
-};
+// const ContentLanding = ({ input }: Props) => {
+//   return (
+//     <div className='content content--landing'>
+//       {input.modules && <Modules input={input.modules} />}
+//     </div>
+//   );
+// };
 
-export default ContentLanding;
+// export default ContentLanding;

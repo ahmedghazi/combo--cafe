@@ -1,11 +1,13 @@
+@use "mixins";
+@use "variables";
+
 .cartouche {
-  padding: 0.4em toRem(20);
+  padding: 0.4em mixins.toRem(60);
   font-family: var(--font-primary-mono);
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
   font-size: var(--text-lg);
   text-transform: uppercase;
-  // background-color: red;
   &--sm {
     padding: 0.4em 1em;
     font-size: var(--text-sm);
@@ -13,58 +15,70 @@
 }
 .btn--pill {
   border: var(--border);
-  padding: 0 toRem(60) 0.1em;
+  padding: 0 mixins.toRem(30) 0.1em;
   border-radius: 2em;
   text-align: center;
   display: inline-block;
-  height: var(--space-50);
-  line-height: calc(var(--space-50) * 0.9);
+  height: var(--spacing-50);
+  line-height: calc(var(--spacing-50) * 0.9);
   text-transform: uppercase;
-  transition: background-color 0.2s, color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
   font-size: var(--text-lg);
   font-family: var(--font-primary-mono);
-  &:hover {
-    background-color: white;
-    color: black;
+  white-space: nowrap;
+  cursor: pointer;
+  &:hover,
+  &.is-active {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-bg);
   }
 
-  @media all and (max-width: $md) {
+  @media all and (max-width: variables.$md) {
     font-size: var(--text-m-md);
     padding: 0 2em;
+  }
+  @media all and (min-width: variables.$md) and (max-width: 1200px) {
+    font-size: var(--text-sm);
+    padding: 0 2em;
+    height: 3em;
+    line-height: calc(3em * 0.9);
   }
 }
 
 .grid-card {
-  padding: var(--space-50);
-  @media all and (max-width: $md) {
-    padding: var(--space-m-md);
+  padding: var(--spacing-50);
+  @media all and (max-width: variables.$md) {
+    padding: var(--spacing-m-md);
   }
   .card {
-    margin-bottom: var(--space-50);
+    margin-bottom: var(--spacing-50);
   }
 }
 .card {
   position: relative;
   .inner {
     display: grid;
-    gap: var(--space-lg);
-    // pointer-events: none;
+    gap: var(--spacing-lg);
     .content {
       display: grid;
-      gap: var(--space-lg);
+      gap: var(--spacing-lg);
       .header {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
         .cartouche {
           display: block;
+          transform: translateY(0.2em);
         }
       }
     }
   }
   h3 {
     font-size: var(--text-2lg);
-    @media all and (max-width: $md) {
+    @media all and (max-width: variables.$md) {
       font-size: var(--text-m-2lg);
     }
   }
@@ -85,7 +99,7 @@
       overflow: clip;
       button {
         z-index: 1;
-        @include center_it;
+        @include mixins.center_it;
       }
     }
   }
@@ -93,15 +107,14 @@
 
 .summary-detail {
   .summary {
-    padding: toRem(30) 0 toRem(20);
+    padding: mixins.toRem(30) 0;
     .icon-arrow {
       position: absolute;
-      right: var(--space-50);
+      right: var(--spacing-50);
     }
 
     .title {
       text-align: center;
-      text-transform: uppercase;
 
       h2 {
         margin: 0;
@@ -109,10 +122,15 @@
       }
     }
   }
-  @media all and (max-width: $md) {
+  @media all and (max-width: variables.$md) {
     .summary {
+      // background-color: orange;
+      .title {
+        padding-left: var(--text-m-xl);
+        padding-right: var(--text-m-xl);
+      }
       .icon-arrow {
-        right: var(--space-lg);
+        right: var(--spacing-lg);
         svg {
           width: auto;
           height: var(--text-m-xl);
@@ -127,4 +145,8 @@
   position: absolute;
   inset: 0;
   mix-blend-mode: multiply;
+}
+
+.is-hidden {
+  display: none;
 }

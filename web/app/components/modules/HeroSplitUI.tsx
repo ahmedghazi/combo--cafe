@@ -1,19 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Figure, HeroSplitScrollUI, HeroSplitUI } from "@/app/types/schema";
-import { urlFor } from "@/app/utils/sanity-utils";
+import { urlFor } from "@/app/sanity-api/sanity-utils";
 import Image from "next/image";
-import { infinitScroll } from "@/app/utils/infinite-scroll-plugin";
-import { _localizeField } from "@/app/utils/utils";
+import { _localizeField } from "@/app/sanity-api/utils";
 import AOS from "../ui/AOS";
 import useDeviceDetect from "@/app/hooks/useDeviceDetect";
-import clsx from "clsx";
 
 type Props = {
   input: HeroSplitUI;
 };
 
 const ModuleHeroSplitUI = ({ input }: Props) => {
-  const [loadedIndex, setLoadedIndex] = useState<number>(0);
   const { itemsLeft, itemsRight } = input;
 
   // const _titleLeftLocalized = _localizeField(titleLeft);
@@ -21,47 +18,45 @@ const ModuleHeroSplitUI = ({ input }: Props) => {
   const { isMobile } = useDeviceDetect();
   const scale = isMobile ? 0.2 : 0.4;
   return (
-    <section
-      className={clsx(
-        "module module--hero-split-ui",
-        loadedIndex > 1 ? "opacity-100" : "opacity-0"
-      )}>
+    <section className='module module--hero-split-ui'>
       <div className='grid grid-cols-2'>
         {itemsLeft && itemsLeft.image && (
           <div className='item'>
-            <Image
-              src={urlFor(itemsLeft?.image.asset, 1500)}
-              alt={itemsLeft.caption || ""}
-              priority={true}
-              width={itemsLeft?.image.asset.metadata.dimensions.width}
-              height={itemsLeft?.image.asset.metadata.dimensions.height}
-              blurDataURL={itemsLeft?.image.asset?.metadata?.lqip}
-              placeholder='blur'
-              onLoad={() => setLoadedIndex((prev) => prev + 1)}
-            />
-            <div className='title headline'>
-              <AOS>
-                <span>{itemsLeft.caption} </span>
-              </AOS>
+            <div className='inner'>
+              <Image
+                src={urlFor(itemsLeft?.image.asset, 1500)}
+                alt={itemsLeft.caption || ""}
+                priority={true}
+                width={itemsLeft?.image.asset.metadata.dimensions.width}
+                height={itemsLeft?.image.asset.metadata.dimensions.height}
+                blurDataURL={itemsLeft?.image.asset?.metadata?.lqip}
+                placeholder='blur'
+              />
+              <div className='title headline'>
+                <AOS>
+                  <span>{itemsLeft.caption} </span>
+                </AOS>
+              </div>
             </div>
           </div>
         )}
         {itemsRight && itemsRight.image && (
           <div className='item'>
-            <Image
-              src={urlFor(itemsRight?.image.asset, 1500)}
-              alt={itemsRight.caption || ""}
-              priority={true}
-              width={itemsRight?.image.asset.metadata.dimensions.width}
-              height={itemsRight?.image.asset.metadata.dimensions.height}
-              blurDataURL={itemsRight?.image.asset?.metadata?.lqip}
-              placeholder='blur'
-              onLoad={() => setLoadedIndex((prev) => prev + 1)}
-            />
-            <div className='title headline'>
-              <AOS delay={0.2}>
-                <span>{itemsRight.caption} </span>
-              </AOS>
+            <div className='inner'>
+              <Image
+                src={urlFor(itemsRight?.image.asset, 1500)}
+                alt={itemsRight.caption || ""}
+                priority={true}
+                width={itemsRight?.image.asset.metadata.dimensions.width}
+                height={itemsRight?.image.asset.metadata.dimensions.height}
+                blurDataURL={itemsRight?.image.asset?.metadata?.lqip}
+                placeholder='blur'
+              />
+              <div className='title headline'>
+                <AOS delay={0.2}>
+                  <span>{itemsRight.caption} </span>
+                </AOS>
+              </div>
             </div>
           </div>
         )}

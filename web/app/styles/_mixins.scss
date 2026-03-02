@@ -1,7 +1,11 @@
+@use "sass:list";
+@use "sass:math";
+@use "sass:string";
+
 @mixin flex_center_h_v {
-  @include flexbox();
-  @include align-items(center);
-  @include justify-content(center);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @mixin center_it {
@@ -40,21 +44,32 @@
   $list: ();
 
   @each $input in $inputs {
-    $input: unquote($input);
-    $input: if($pseudo, $input + ":" + $pseudo, $input);
-    $list: append($list, $input, comma);
+    $input: string.unquote($input);
+    @if $pseudo {
+      $input: $input + ":" + $pseudo;
+    }
+    $list: list.append($list, $input, comma);
   }
 
   @return $list;
 }
 
-$inputs-list: 'input[type="email"]', 'input[type="number"]',
-  'input[type="password"]', 'input[type="search"]', 'input[type="tel"]',
-  'input[type="text"]', 'input[type="url"]',
+$inputs-list:
+  'input[type="email"]',
+  'input[type="number"]',
+  'input[type="password"]',
+  'input[type="search"]',
+  'input[type="tel"]',
+  'input[type="text"]',
+  'input[type="url"]',
   /* Webkit & Gecko may change the display of these in the future */
-    'input[type="color"]',
-  'input[type="date"]', 'input[type="datetime"]', 'input[type="datetime-local"]',
-  'input[type="month"]', 'input[type="time"]', 'input[type="week"]';
+  'input[type="color"]',
+  'input[type="date"]',
+  'input[type="datetime"]',
+  'input[type="datetime-local"]',
+  'input[type="month"]',
+  'input[type="time"]',
+  'input[type="week"]';
 
 /* Bare inputs */
 $all-text-inputs: assign-inputs($inputs-list);
@@ -71,46 +86,6 @@ $all-text-inputs-focus: assign-inputs($inputs-list, focus);
 //   background: linear-gradient(to bottom, $start 0%, $end 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 //   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
 // }
-@mixin linear-gradient($direction, $color) {
-  $alpha: rgba($color, 0);
-  $half: rgba($color, 0.7);
-  // background: linear-gradient(to $direction, $color 0%, $half 50%, $alpha 100%);
-
-  background-image: -webkit-linear-gradient(
-    to $direction,
-    $color 0%,
-    $half 50%,
-    $alpha 100%
-  );
-  background-image: -moz-linear-gradient(
-    to $direction,
-    $color 0%,
-    $half 50%,
-    $alpha 100%
-  );
-  background-image: -ms-linear-gradient(
-    to $direction,
-    $color 0%,
-    $half 50%,
-    $alpha 100%
-  );
-  background-image: -o-linear-gradient(
-    to $direction,
-    $color 0%,
-    $half 50%,
-    $alpha 100%
-  );
-  background-image: linear-gradient(
-    to $direction,
-    $color 0%,
-    $half 50%,
-    $alpha 100%
-  );
-
-  // background: nth(nth($color-stops, 1), 1);
-  // background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
-  // background: linear-gradient($direction, $color-stops);
-}
 
 @mixin _placeholder {
   &::-webkit-input-placeholder {
@@ -152,27 +127,6 @@ $all-text-inputs-focus: assign-inputs($inputs-list, focus);
   }
 }
 
-/***********************************************************
-  ANIMATIONS
- ***********************************************************/
-// @mixin anime($duration:.2s, $delay:0s) {
-//     transition: all $duration ease-out $delay;
-//     -webkit-transition-timing-function: cubic-bezier(0.91, 0.01, 0, 0.99);
-//     -moz-transition-timing-function: cubic-bezier(.37, .01, 0, .98);
-//     -o-transition-timing-function: cubic-bezier(.37, .01, 0, .98);
-//     transition-timing-function: cubic-bezier(.37, .01, 0, .98);
-// }
-@mixin anime($duration: 0.2s, $delay: 0s) {
-  transition: all $duration ease-out $delay;
-  @include bezier;
-}
-@mixin bezier {
-  -webkit-transition-timing-function: cubic-bezier(0.91, 0.01, 0, 0.99);
-  -moz-transition-timing-function: cubic-bezier(0.37, 0.01, 0, 0.98);
-  -o-transition-timing-function: cubic-bezier(0.37, 0.01, 0, 0.98);
-  transition-timing-function: cubic-bezier(0.37, 0.01, 0, 0.98);
-}
-
 // Burger parts
 //
 // (---) top    -> &::before
@@ -181,6 +135,9 @@ $all-text-inputs-focus: assign-inputs($inputs-list, focus);
 
 // Vendor prefixes
 $sass-burger-add-vendor-prefixes: true !default;
+// Burger shared state, needed for !global assignments
+$burger-height: null;
+$burger-gutter: null;
 
 // Burger
 @mixin burger(
@@ -222,9 +179,15 @@ $sass-burger-add-vendor-prefixes: true !default;
     }
 
     @if $sass-burger-add-vendor-prefixes {
-      -webkit-transition-property: background-color, -webkit-transform;
-      -moz-transition-property: background-color, -moz-transform;
-      -o-transition-property: background-color, -o-transform;
+      -webkit-transition-property:
+        background-color,
+        -webkit-transform;
+      -moz-transition-property:
+        background-color,
+        -moz-transform;
+      -o-transition-property:
+        background-color,
+        -o-transform;
     }
 
     transition-property: background-color, transform;
@@ -293,8 +256,8 @@ $sass-burger-add-vendor-prefixes: true !default;
       background-color: $color;
     }
   }
-  $burger-gutter: 6px;
-  $burger-height: 1px;
+  $burger-gutter: 4px;
+  $burger-height: 2px;
   &::before {
     @if $sass-burger-add-vendor-prefixes {
       -webkit-transform: translateY($burger-gutter + $burger-height)
@@ -323,57 +286,6 @@ $sass-burger-add-vendor-prefixes: true !default;
   }
 }
 
-@mixin column($count: 2, $gap: $gutter) {
-  column-count: $count;
-  column-gap: $gap;
-}
-
-@mixin chevron(
-  $cDirection: "right",
-  $cSize: 20px,
-  $cWidth: 1px,
-  $cColor: black
-) {
-  display: block;
-  width: $cSize;
-  height: $cSize;
-  border-top: 1px solid $cColor;
-  border-right: 1px solid $cColor;
-  border-width: $cWidth;
-
-  @if $cDirection== "top" {
-    transform: rotate(-45deg);
-  }
-
-  @if $cDirection== "right" {
-    transform: rotate(45deg);
-  }
-
-  @if $cDirection== "bottom" {
-    transform: rotate(135deg);
-  }
-
-  @if $cDirection== "left" {
-    transform: rotate(225deg);
-  }
-}
-
-@mixin slide($direction, $opacity: 0) {
-  @if $direction== "top" {
-    transform: translateY(-100%);
-  } @else if $direction== "right" {
-    transform: translateX(100%);
-  } @else if $direction== "bottom" {
-    transform: translateY(100%);
-  } @else if $direction== "left" {
-    transform: translateX(-100%);
-  } @else if $direction== "none" {
-    transform: translateX(0) translateY(0);
-  }
-
-  opacity: $opacity;
-}
-
 @mixin vertical($angle: 90deg) {
   position: absolute;
   //top: 50%;
@@ -400,87 +312,16 @@ $sass-burger-add-vendor-prefixes: true !default;
   $dynamic-top-crop: max(
       ($top-crop + ($line-height - $crop-line-height) * ($crop-font-size / 2)),
       0
-    ) / $crop-font-size;
+    ) /
+    $crop-font-size;
   $dynamic-bottom-crop: max(
       (
         $bottom-crop + ($line-height - $crop-line-height) *
           ($crop-font-size / 2)
       ),
       0
-    ) / $crop-font-size;
-
-  // Mixin output
-  line-height: $line-height;
-
-  &::before,
-  &::after {
-    content: "";
-    display: block;
-    height: 0;
-    width: 0;
-  }
-
-  &::before {
-    margin-bottom: calc(-#{$dynamic-top-crop}em + #{$top-adjustment});
-  }
-
-  &::after {
-    margin-top: calc(-#{$dynamic-bottom-crop}em + #{$bottom-adjustment});
-  }
-}
-
-@mixin check-box-radio($width: 16px, $bg: white, $checked: black) {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background: $bg;
-  //border: 2px solid #000;
-  width: $width;
-  height: $width;
-  position: relative;
-
-  &:before {
-    //background: $checked;
-    content: "";
-    width: $width/2;
-    height: $width/2;
-    border-radius: $width;
-    background: $checked;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    @include anime();
-  }
-
-  &:checked::before {
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
-
-@mixin text-crop(
-  $line-height: 1.3,
-  $top-adjustment: 0px,
-  $bottom-adjustment: 0px
-) {
-  // Configured in Step 1
-  $top-crop: 2;
-  $bottom-crop: 3;
-  $crop-font-size: 12;
-  $crop-line-height: 1.2;
-
-  // Apply values to calculate em-based margins that work with any font size
-  $dynamic-top-crop: max(
-      ($top-crop + ($line-height - $crop-line-height) * ($crop-font-size / 2)),
-      0
-    ) / $crop-font-size;
-  $dynamic-bottom-crop: max(
-      (
-        $bottom-crop + ($line-height - $crop-line-height) *
-          ($crop-font-size / 2)
-      ),
-      0
-    ) / $crop-font-size;
+    ) /
+    $crop-font-size;
 
   // Mixin output
   line-height: $line-height;
@@ -508,7 +349,7 @@ $sass-burger-add-vendor-prefixes: true !default;
   &:before {
     z-index: 999;
     content: "";
-    position: absolute;
+    position: fixed;
     top: $top;
     height: 1px;
     width: 100%;
@@ -641,7 +482,6 @@ $browser-context: 14;
 }
 
 @function toRem($value) {
-  $newVal: $value / 16;
-  $remValue: $newVal + rem;
+  $remValue: math.div($value, 16) + rem;
   @return $remValue;
 }

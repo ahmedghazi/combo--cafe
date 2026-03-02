@@ -8,22 +8,24 @@ import {
   SanityKeyed,
 } from "../types/schema";
 import Link from "next/link";
-import { _linkResolver, _localizeField, _localizeText } from "../utils/utils";
 import { usePathname, useRouter } from "next/navigation";
 import LinkTransition from "./ui/LinkTransition";
+import clsx from "clsx";
+import { _linkResolver, _localizeField } from "../sanity-api/utils";
 
 type NavLinkProps = {
   href: string;
   name: string;
+  cta: boolean;
 };
 
-const NavLink = ({ href, name }: NavLinkProps) => {
+const NavLink = ({ href, name, cta }: NavLinkProps) => {
   // const { asPath } = useRouter();
   const pathname = usePathname();
-  const ariaCurrent = href === pathname ? "page" : undefined;
+  const ariaCurrent = href !== "/" && href === pathname ? "page" : undefined;
 
   return (
-    <LinkTransition href={href} aria-current={ariaCurrent}>
+    <LinkTransition href={href} aria-current={ariaCurrent} cta={cta}>
       {name}
     </LinkTransition>
   );
@@ -48,12 +50,22 @@ const NavPrimary = ({ input }: Props) => {
   const isMenuItemWithSubmenu = (item: SanityKeyed<MenuItem>) => {
     return item.subMenu && item.subMenu.length > 0;
   };
-  // console.log(input);
+
   return (
     <nav>
-      <ul className="menu flex justify-center">
+      <ul className="menu flex justify-start items-center">
         {input.map((item, i) => (
-          <li key={i}>
+          <li
+            key={i}
+            className={clsx(
+              `menu--${item._type}`,
+              item._type === "linkInternal" &&
+                isLinkInternalWithSubmenu(item) &&
+                "has-submenu",
+              item._type === "linkInternal" && item.cta && "is-cta",
+              item._type === "menuItem" && item.subMenu && "has-submenu",
+            )}
+          >
             <NavLink
               href={
                 item._type === "menuItem"
@@ -65,6 +77,7 @@ const NavPrimary = ({ input }: Props) => {
                   ? _localizeField(item.link?.label)
                   : _localizeField(item.label)
               }
+              cta={item._type === "linkInternal" && item.cta === true}
             />
             {item._type === "linkInternal" &&
               isLinkInternalWithSubmenu(item) && (
@@ -87,37 +100,24 @@ const NavPrimary = ({ input }: Props) => {
               <ul className="sub-menu">
                 {item.subMenu?.map((subItem, j) => (
                   <li key={j}>
-                    <Link href={_linkResolver(subItem.link)}>
-                      {_localizeField(subItem.label)}
-                    </Link>
+                    {subItem._type === "linkInternal" && (
+                      <Link href={_linkResolver(subItem.link)}>
+                        {_localizeField(subItem.label)}
+                      </Link>
+                    )}
+                    {subItem._type === "linkExternal" && (
+                      <a
+                        href={subItem.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {subItem.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
             )}
-            {/* {item._type === "linkInternal" &&
-              isLinkInternalWithSubmenu(item) && (
-                <ul className="sub-menu">
-                  {item.link.subMenu.map((subItem: KeyVal, j: number) => (
-                    <li key={j}>
-                      <Link href={`${_linkResolver(item.link)}#${subItem.val}`}>
-                        {_localizeField(subItem.key)}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            {item._type === "menuItem" && isMenuItemWithSubmenu(item) && (
-              <ul className="sub-menu">
-                {item.subMenu &&
-                  item.subMenu.map((subItem, j: number) => (
-                    <li key={j}>
-                      <Link href={_linkResolver(subItem.link)}>
-                        {_localizeField(subItem.label)}
-                      </Link>
-                    </li>
-                  ))}
-              </ul>
-            )} */}
           </li>
         ))}
       </ul>

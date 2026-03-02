@@ -1,7 +1,7 @@
 import { Figure, LocaleString, LocaleText, Studio } from "@/app/types/schema";
 import React, { MouseEvent, useEffect } from "react";
 import FigureUI from "./Figure";
-import { _localizeField, _localizeText } from "@/app/utils/utils";
+import { _localizeField, _localizeText } from "@/app/sanity-api/utils";
 import AOS from "./AOS";
 import { subscribe } from "pubsub-js";
 
@@ -27,7 +27,7 @@ const CardStudio = ({ input, _onClick }: Props) => {
     const target = event.target as Element;
     if (!target?.classList.contains("is-active")) {
       const articles: NodeListOf<HTMLElement> = document.querySelectorAll(
-        ".grid article.is-active"
+        ".grid article.is-active",
       );
       articles.forEach((el) => {
         el.classList.remove("is-active");
@@ -39,26 +39,26 @@ const CardStudio = ({ input, _onClick }: Props) => {
   };
 
   return (
-    <article className="card card--studio" onClick={onClick}>
-      <div className="pointer-events-none ">
+    <article className='card card--studio' onClick={onClick}>
+      <div className='pointer-events-none '>
         <AOS>
-          <div className="inner">
-            <div className="image">
+          <div className='inner'>
+            <div className='image'>
               {imageCover && <FigureUI asset={imageCover.image} />}
-              <div className="overlay">
-                <div className="bg-blend"></div>
-                <button className="btn--pill">
+              <div className='overlay'>
+                <div className='bg-blend'></div>
+                <button className='btn--pill'>
                   {_localizeText("reserver")}
                 </button>
               </div>
             </div>
-            <div className="header flex justify-between items-center">
+            <div className='header flex justify-between items-center'>
               {title && <h3>{_localizeField(title)}</h3>}
               {location && (
-                <span className="cartouche cartouche--sm">{location}</span>
+                <span className='cartouche cartouche--sm'>{location}</span>
               )}
             </div>
-            {excerpt && <p className="excerpt">{_localizeField(excerpt)}</p>}
+            {excerpt && <p className='excerpt'>{_localizeField(excerpt)}</p>}
           </div>
         </AOS>
       </div>

@@ -1,6 +1,6 @@
 // import React from "react";
 // import { PortableText } from "@portabletext/react";
-// import portableTextComponents from "@/app/utils/portableTextComponents";
+// import portableTextComponents from "@/app/sanity-api/portableTextComponents";
 // import { TextImageUI } from "@/app/types/schema";
 // import Figure from "../ui/Figure";
 // import clsx from "clsx";

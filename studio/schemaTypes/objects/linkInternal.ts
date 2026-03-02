@@ -30,5 +30,10 @@ export default defineField({
       weak: true,
       to: linkExternalTypes,
     }),
+    defineField({
+      name: 'cta',
+      type: 'boolean',
+      description: 'Look Bouton avec outline',
+    }),
   ],
 })

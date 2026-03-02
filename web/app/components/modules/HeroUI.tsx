@@ -1,5 +1,5 @@
 import { HeroUI } from "@/app/types/schema";
-import { urlFor } from "@/app/utils/sanity-utils";
+import { urlFor } from "@/app/sanity-api/sanity-utils";
 import Image from "next/image";
 import React from "react";
 import AOS from "../ui/AOS";
@@ -11,7 +11,7 @@ type Props = {
 const ModuleHeroUI = ({ input }: Props) => {
   const { image } = input;
   return (
-    <section className="module module--hero-ui">
+    <section className='module module--hero-ui'>
       {image && image.image && (
         // <AOS>
         <Image
@@ -19,7 +19,7 @@ const ModuleHeroUI = ({ input }: Props) => {
           width={image.image.asset?.metadata?.dimensions.width || 2000}
           height={image.image.asset?.metadata?.dimensions.height || 2000}
           alt={image.caption || ""}
-          sizes="100vw"
+          sizes='100vw'
           style={{
             width: "100%",
             height: "100%",

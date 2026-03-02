@@ -21,7 +21,7 @@ const LocalesSwitcher = ({ buttonSize = "regular" }) => {
             <button
               onClick={() => dispatch(item.locale)}
               className={clsx(
-                `btn btn--${buttonSize}`
+                `btn btn--${buttonSize}`,
                 // locale === item.locale ? "is-active" : ""
               )}>
               {item.label}

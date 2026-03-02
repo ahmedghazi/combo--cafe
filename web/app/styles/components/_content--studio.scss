@@ -1,7 +1,9 @@
+@use "../variables";
+
 .content--studio {
   .image-hero img,
   .slider-hero img {
-    max-height: calc(var(--vh) * 100 - var(--header-height) * 2);
+    max-height: calc(var(--vh) * 100 - var(--header-h) * 2);
   }
   p {
     text-align: left;
@@ -11,7 +13,7 @@
     left: 0;
   }
   .summary-detail {
-    // margin-bottom: var(--space-xl);
+    // margin-bottom: var(--spacing-xl);
     .summary .pointer-events-none {
       pointer-events: initial;
     }
@@ -21,7 +23,7 @@
         color: black;
       }
       .detail {
-        // padding-top: var(--space-xl);
+        // padding-top: var(--spacing-xl);
       }
     }
     .summary button {
@@ -29,12 +31,7 @@
       max-width: 100%;
     }
   }
-  @media all and (max-width: $md) {
-    .image-hero img,
-    .slider-hero img {
-      max-height: calc(var(--vh) * 100 - var(--header-height) * 3);
-      aspect-ratio: 5 / 3;
-    }
+  @media all and (max-width: variables.$md) {
     .header {
       display: flex;
       flex-direction: column-reverse;

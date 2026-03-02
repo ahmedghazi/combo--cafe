@@ -77,6 +77,30 @@ export const textUI = `
 		}
 	}
 `;
+export const textsUI = `
+	_type == 'textsUI' => {
+		...,
+		backgroundImage{
+			...,
+			asset->
+		},
+    items[]{
+      ${blockContent}
+    }
+	}
+`;
+
+export const textImageUI = `
+	_type == 'textImageUI' => {
+		...,
+		text{
+			${blockContent}
+		},
+		image{
+			${figure}
+		}
+	}
+`;
 
 export const heroUI = `
 	_type == 'heroUI' => {
@@ -86,6 +110,31 @@ export const heroUI = `
 			asset->
 		}
 	}
+`;
+export const imagesUI = `
+  _type == 'imagesUI' => {
+    ...,
+    items[]{
+      ...,
+      image{
+        ...,
+        asset->
+      }
+    }
+  }
+`;
+
+export const logosUI = `
+  _type == 'logosUI' => {
+    ...,
+    items[]{
+      ...,
+      image{
+        ...,
+        asset->
+      }
+    }
+  }
 `;
 
 export const contactsUI = `
@@ -124,6 +173,20 @@ export const listLModulaireUI = `
 				...,
 				asset->
 			}
+		}
+	}
+`;
+export const listLPageUI = `
+	_type == 'listPageUI' => {
+		...,
+		navTags[]->,
+		items[]-> {
+			...,
+			imageCover{
+				...,
+				asset->
+			},
+			tags[]->
 		}
 	}
 `;
@@ -195,7 +258,34 @@ export const listCardImageTextUI = `
 			image{
 				...,
 				asset->
-			}
+			},
+			text{
+				${blockContent}
+			},
+      tagFilter->{
+        title,
+        slug
+      }
+		},
+    navTags[]->{
+      title,
+      slug
+    }
+	}
+	`;
+
+export const sliderCardImageTextUI = `
+	_type == 'sliderCardImageTextUI' => {
+		...,
+		items[] {
+			...,
+			image{
+				...,
+				asset->
+			},
+			text{
+				${blockContent}
+			},
 		}
 	}
 	`;
@@ -208,15 +298,21 @@ _type == 'listLieuUI' => {
 		modules[]{
 			...,
 			${heroUI},
+      ${imagesUI},
+      ${logosUI},
 			${textUI},
+			${textsUI},
+			${textImageUI},
 			${contactsUI},
 			${listStudioUI},
+			${listLPageUI},
 			${callOutUI},
 			${listLModulaireUI},
 			${splitImageTextUI},
 			${heroSplitScrollUI},
 			${listCardImageTextUI},
-			${heroSplitUI}
+			${heroSplitUI},
+			${sliderCardImageTextUI}
 		},
 	}
 }
@@ -225,14 +321,20 @@ _type == 'listLieuUI' => {
 export const modules = `
 	...,
 	${heroUI},
+  ${imagesUI},
+  ${logosUI},
 	${textUI},
+	${textsUI},
+	${textImageUI},
 	${contactsUI},
 	${listStudioUI},
+	${listLPageUI},
 	${listLieuUI},
 	${callOutUI},
 	${listLModulaireUI},
 	${splitImageTextUI},
 	${heroSplitScrollUI},
 	${listCardImageTextUI},
-	${heroSplitUI}
+	${heroSplitUI},
+	${sliderCardImageTextUI}
 `;

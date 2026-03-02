@@ -1,7 +1,7 @@
 import { CallOutUI } from "@/app/types/schema";
 import React from "react";
 import AOS from "../ui/AOS";
-import { _localizeField } from "@/app/utils/utils";
+import { _localizeField } from "@/app/sanity-api/utils";
 
 type Props = {
   input: CallOutUI;
@@ -21,26 +21,24 @@ const ModuleCallOutUI = ({ input }: Props) => {
   const hasImage = backgroundImage && backgroundImage.asset.url !== "";
   return (
     <section
-      className="module module--callout-ui"
+      className='module module--callout-ui'
       style={style}
-      id={input.slug?.current}
-    >
-      {hasImage && <div className="bg-blend"></div>}
-      <div className="inner">
+      id={input.slug?.current}>
+      {hasImage && <div className='bg-blend'></div>}
+      <div className='inner'>
         <AOS>
-          <h2 className="headline">{_localizeField(title)}</h2>
+          <h2 className='headline'>{_localizeField(title)}</h2>
         </AOS>
-        <div className="items flex flex-col items-center gap-1e">
+        <div className='items flex flex-col items-center gap-1e'>
           {input.links?.map((item, i) => (
-            <div className="item " key={i}>
+            <div className='item ' key={i}>
               {item && (
                 <AOS delay={i + 0.1}>
                   <a
                     href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn--pill"
-                  >
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='btn--pill'>
                     {item.label}
                   </a>
                 </AOS>

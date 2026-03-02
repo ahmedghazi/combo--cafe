@@ -1,4 +1,6 @@
+@use "../variables";
+
 .page-project {
-  @media all and (max-width: $md) {
+  @media all and (max-width: variables.$md) {
   }
 }

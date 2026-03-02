@@ -228,8 +228,8 @@ audio,
 canvas,
 video {
   display: inline-block;
-  *display: inline;
-  *zoom: 1;
+  // *display: inline;
+  // *zoom: 1;
 }
 
 audio:not([controls]) {
@@ -308,15 +308,11 @@ img[data-sizes="auto"] {
 
 ::-moz-selection {
   /* Code for Firefox */
-  // color: blue;
-  background-color: var(--color-primary);
-  color: var(--color-secondary);
+  color: var(--color-accent);
 }
 
 ::selection {
-  // color: blue;
-  background-color: var(--color-primary);
-  color: var(--color-secondary);
+  color: var(--color-accent);
 }
 
 iframe {

@@ -12,12 +12,14 @@ interface LinkTransitionProps extends LinkProps {
   children: ReactNode;
   href: string;
   className?: string;
+  cta: boolean;
 }
 
 const LinkTransition = ({
   href,
   children,
   className = "",
+  cta,
   ...props
 }: LinkTransitionProps) => {
   const router = useRouter();
@@ -43,7 +45,7 @@ const LinkTransition = ({
     <Link
       onClick={_handleTransition}
       href={href}
-      className={className}
+      className={`${className} ${cta ? "btn--pill" : ""}`}
       {...props}
     >
       {children}

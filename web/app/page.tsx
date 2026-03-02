@@ -1,17 +1,13 @@
 import { draftMode } from "next/headers";
 import { Metadata } from "next";
 import website from "./config/website";
-import { getHome, homeQ } from "./utils/sanity-queries";
+import { getHome, HOME_QUERY } from "./sanity-api/sanity-queries";
 import { Home } from "./types/schema";
-import { getClient } from "./utils/sanity-client";
+import { notFound } from "next/navigation";
+import { getClient } from "./sanity-api/sanity.client";
 import ContentModulaire from "./components/ContentModulaire";
 
-export const revalidate = 60; // revalidate every hour
-export const dynamic = "force-dynamic";
-
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   const data = await getHome();
   return {
     title: `${data?.seo?.metaTitle || data?.title?.fr || ""}`,
@@ -22,27 +18,26 @@ export async function generateMetadata({
   };
 }
 
-type PageProps = {
-  params: {
-    slug: string;
-  };
-};
+export const revalidate = 3600;
+// revalidate every hour
 
-const HomePage: ({ params }: PageProps) => Promise<JSX.Element> = async ({
-  params,
-}) => {
-  const { isEnabled: preview } = draftMode();
+const HomePage = async function Page() {
+  const { isEnabled } = await draftMode();
+
   let data: Home;
-  if (preview) {
+  if (isEnabled) {
     data = await getClient({ token: process.env.SANITY_API_READ_TOKEN }).fetch(
-      homeQ,
-      params
+      HOME_QUERY,
+      {
+        slug: "/",
+      },
     );
   } else {
     data = (await getHome()) as Home;
   }
-  // console.log(data);
-  if (!data) return <div>please edit page</div>;
+
+  if (!data) return notFound();
+
   return (
     <div className='template template--home' data-template='home'>
       {data.modules && <ContentModulaire modules={data.modules} />}

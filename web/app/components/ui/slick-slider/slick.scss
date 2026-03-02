@@ -128,19 +128,20 @@
 .slick-dots {
   display: flex !important;
   justify-content: center;
-  gap: var(--space-sm);
+  gap: var(--spacing-sm);
   position: absolute;
   left: 50%;
-  bottom: var(--space-md);
+  bottom: var(--spacing-md);
   transform: translateX(-50%);
   color: var(--color-blue);
   padding: 0.5em 0.5em 0.2em;
+  z-index: 10;
   li {
-    width: var(--space-sm);
-    height: var(--space-sm);
+    width: var(--spacing-sm);
+    height: var(--spacing-sm);
     border: var(--border);
     border-color: var(--color-accent);
-    border-radius: var(--space-sm);
+    border-radius: var(--spacing-sm);
     &.slick-active {
       background-color: var(--color-accent);
     }

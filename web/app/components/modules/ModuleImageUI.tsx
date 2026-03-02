@@ -5,7 +5,7 @@
 // import clsx from "clsx";
 
 // // import { _localizeField } from 'utils/utils';
-// import portableTextComponents from "@/app/utils/portableTextComponents";
+// import portableTextComponents from "@/app/sanity-api/portableTextComponents";
 // import { PortableText } from "@portabletext/react";
 // import Figure from "../ui/Figure";
 // import { ImageUI } from "@/app/types/schema";

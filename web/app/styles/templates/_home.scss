@@ -1,7 +1,9 @@
+@use "../variables";
+
 .page-home {
 }
 
-@media all and (max-width: $sm) {
+@media all and (max-width: variables.$sm) {
   .page-home {
   }
 }

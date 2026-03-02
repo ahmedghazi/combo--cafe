@@ -6,7 +6,7 @@ type Props = {
 };
 
 const ModuleSliderUI = (props: Props) => {
-  return <section className="module module--slider">ModuleSliderUI</section>;
+  return <section className='module module--slider'>ModuleSliderUI</section>;
 };
 
 export default ModuleSliderUI;

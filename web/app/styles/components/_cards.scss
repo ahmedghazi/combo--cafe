@@ -1,3 +1,5 @@
+@use "../variables";
+
 // .card {
 //   &:hover {
 //     color: var(--color-muted);
@@ -11,5 +13,58 @@
     aspect-ratio: 1 / 1;
     height: 100%;
     object-fit: cover;
+  }
+}
+
+.card {
+  figure {
+    max-width: 100%;
+    img {
+      aspect-ratio: 1 / 1;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .inner {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing-md) - 0.2rem);
+    .content,
+    .header {
+      gap: var(--spacing-sm);
+    }
+  }
+  @media all and (min-width: variables.$sm) and (max-width: 1200px) {
+    .inner {
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--spacing-md));
+    }
+    .image {
+      max-width: 100%;
+    }
+    img {
+      aspect-ratio: 1 / 1;
+      height: 100%;
+      object-fit: contain;
+    }
+    .cartouche {
+      transform: translateY(0.2rem);
+    }
+  }
+  @media all and (max-width: variables.$sm) {
+    .inner {
+      gap: calc(var(--spacing-md) * 1);
+      .content {
+        gap: calc(var(--spacing-md) * 0.7);
+      }
+    }
+  }
+  &--page {
+    @media all and (min-width: variables.$sm) and (max-width: 1200px) {
+      h3 {
+        font-size: var(--text-m-2lg);
+      }
+    }
   }
 }

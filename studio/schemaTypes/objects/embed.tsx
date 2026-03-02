@@ -1,13 +1,15 @@
 import React from 'react'
 import ReactPlayer from 'react-player'
+import {defineField} from 'sanity'
+
 type Props = {
-  props: {
-    url: string
-  }
+  url?: string
+  iframe?: string
+  renderDefault: Function
 }
 
 const EmbedPreview = (props: Props): JSX.Element => {
-  const {url, renderDefault} = props
+  const {url, iframe, renderDefault} = props
 
   const playerConfig = {
     youtube: {
@@ -28,11 +30,14 @@ const EmbedPreview = (props: Props): JSX.Element => {
     },
   }
 
-  if (!url) return <div>{renderDefault(props)}</div>
+  console.log('url', url)
+  // if (!url || !iframe) return <div>{renderDefault(props)}</div>
+  console.log('iframe', iframe)
   return (
     <div>
       {renderDefault({...props, title: 'YouTube Embed'})}
-      <ReactPlayer url={url} config={playerConfig} width="100%" height="auto" />
+      {url && <ReactPlayer url={url} config={playerConfig} width="100%" height="auto" />}
+      {iframe && <div dangerouslySetInnerHTML={{__html: iframe}} />}
     </div>
   )
 }
@@ -43,11 +48,17 @@ export default {
   type: 'object',
 
   fields: [
-    {
+    defineField({
       name: 'url',
       type: 'url',
-      description: 'url publique du media ex: https://www.youtube.com/watch?v=exTZ9vB6ZeE',
-    },
+      // description: 'url publique du media ex: https://www.youtube.com/watch?v=exTZ9vB6ZeE',
+      description: 'for youtube, vimeo ex: https://www.youtube.com/watch?v=exTZ9vB6ZeE',
+    }),
+    defineField({
+      name: 'iframe',
+      type: 'text',
+      rows: 4,
+    }),
   ],
   components: {
     preview: EmbedPreview, // Add custom preview component
@@ -55,6 +66,7 @@ export default {
   preview: {
     select: {
       url: 'url',
+      iframe: 'iframe',
     },
   },
 }

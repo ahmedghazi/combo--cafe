@@ -94,6 +94,12 @@ export default defineType({
       group: 'header',
     }),
     defineField({
+      name: 'footerDark',
+      title: 'Footer Dark ',
+      type: 'boolean',
+      group: 'footer',
+    }),
+    defineField({
       name: 'navSecondary',
       title: 'Naviguation Secondary',
       type: 'array',
@@ -138,6 +144,7 @@ export default defineType({
       type: 'localeBlockContent',
       group: 'misc',
     }),
+
     defineField({
       name: 'legalsUrl',
       title: 'Page de mentions légales',

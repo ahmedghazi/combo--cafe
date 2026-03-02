@@ -14,7 +14,7 @@ img {
 // }
 
 .center-x-y {
-  // @include center_it;
+  // @include mixins.center_it;
   display: grid;
   place-items: center;
 }
@@ -128,4 +128,24 @@ ul.list-with-comma {
 
 .flex-2 {
   flex: 2;
+}
+
+@media (min-width: 1080px) {
+  @for $i from 1 through 10 {
+    .md\:grid-cols-#{$i} {
+      grid-template-columns: repeat($i, minmax(0, 1fr));
+    }
+    // .md\:col-span-#{$i} {
+    //   grid-column: span $i / span $i;
+    // }
+    // .md\:col-start-#{$i} {
+    //   grid-column-start: $i !important;
+    // }
+  }
+}
+
+.aos {
+  div {
+    position: relative;
+  }
 }

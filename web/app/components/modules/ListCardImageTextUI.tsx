@@ -1,85 +1,75 @@
-import { ListCardImageTextUI } from "@/app/types/schema";
-import { _localizeField } from "@/app/utils/utils";
-import React from "react";
+import {
+  ListCardImageTextUI,
+  LocaleString,
+  SanityKeyedReference,
+  Tag,
+} from "@/app/types/schema";
+import { _localizeField } from "@/app/sanity-api/utils";
+import React, { useState } from "react";
 import Card from "../ui/Card";
 import AOS from "../ui/AOS";
 import clsx from "clsx";
-import Slider from "../ui/slick-slider";
+// import Slider from "../ui/slick-slider";
 
 type Props = {
   input: ListCardImageTextUI;
 };
 
 const ModuleListCardImageTextUI = ({ input }: Props) => {
-  // const { title, items, gridSize, sliderShow } = input;
-  const { title, items, gridSize } = input;
+  const { title, items, gridSize, navTags } = input;
+  const [tag, setTag] = useState<string>("");
+
   // console.log(input);
+  const updateTag = (val: string) => {
+    if (!val) return;
+    setTag(val === tag ? "" : val);
+  };
+
+  const getIsInTag = (val: string) => {
+    if (!val) return "";
+    console.log(val, tag);
+    return tag !== "" && val === tag ? "is-selected" : "";
+  };
+
   return (
-    <section className='module module--list-card-image-text-ui'>
-      <div className='inner'>
-        <h2 className='headline'>{_localizeField(title)}</h2>
-        {/* <div className="slider-container -px-sm">
-          {sliderShow && items && items?.length >= 3 && (
-            <Slider
-              settingsOverride={{
-                slidesToShow: gridSize || 3,
-                slidesToScroll: gridSize || 3,
-                dots: true,
-                responsive: [
-                  {
-                    breakpoint: 1024,
-                    settings: {
-                      slidesToShow: 1,
-                      slidesToScroll: 1,
-                    },
-                  },
-                ],
-              }}
-            >
-              {items?.map((item, i) => (
-                <div className="slide md:px-sm" key={i}>
-                  <Card
-                    key={i}
-                    image={item.image}
-                    title={_localizeField(item.title)}
-                    tag={_localizeField(item.tag)}
-                    text={_localizeField(item.text)}
-                  />
-                </div>
-              ))}
-            </Slider>
-          )}
-        </div>
-        {!sliderShow && (
-          <div
-            className={clsx(
-              "grid gap-xl md:gap-y-xl md:gap-md",
-              `md:grid-cols-${gridSize || 3}`
-            )}
-          >
-            {items?.map((item, i) => (
-              <div key={i}>
+    <section className="module module--list-card-image-text-ui">
+      <div className="inner">
+        <h2 className="headline">{_localizeField(title)}</h2>
+
+        {navTags && navTags?.length > 0 && (
+          <ul className="flex flex-wrap justify-center gap-md mb-50">
+            {navTags.map((item: SanityKeyedReference<Tag>, i) => (
+              <li key={i}>
                 <AOS delay={i / 5}>
-                  <Card
-                    key={i}
-                    image={item.image}
-                    title={_localizeField(item.title)}
-                    tag={_localizeField(item.tag)}
-                    text={_localizeField(item.text)}
-                  />
+                  <button
+                    className={clsx(
+                      "btn--pill text-accent ",
+                      tag === item.slug?.current && "is-active",
+                    )}
+                    onClick={() => updateTag(item.slug?.current || "")}
+                  >
+                    {_localizeField(item.title)}
+                  </button>
                 </AOS>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         )}
-        */}
         <div
           className={clsx(
             "grid gap-xl md:gap-y-xl md:gap-md",
-            `md:grid-cols-${gridSize || 3}`
-          )}>
+            `grid-cols-1 md:grid-cols-${gridSize || 3}`,
+            tag !== "" && "is-filtering",
+          )}
+        >
           {items?.map((item, i) => (
-            <div key={i}>
+            <div
+              className={clsx(
+                "item",
+                getIsInTag(item.tagFilter?.slug?.current || ""),
+              )}
+              key={i}
+            >
               <AOS delay={i / 5}>
                 <Card
                   key={i}
@@ -93,7 +83,6 @@ const ModuleListCardImageTextUI = ({ input }: Props) => {
           ))}
         </div>
       </div>
-      {/* <pre>{JSON.stringify(input.items, null, 2)}</pre> */}
     </section>
   );
 };

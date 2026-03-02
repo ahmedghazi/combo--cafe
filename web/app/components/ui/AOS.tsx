@@ -29,10 +29,10 @@ Props) => {
           delay: delay,
           // ease: 'easeOut',
         }}
-        // onAnimationComplete={onAnimationComplete}
       >
         {children}
       </motion.div>
+      {/* {children} */}
     </div>
   );
 };

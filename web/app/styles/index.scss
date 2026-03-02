@@ -1,25 +1,25 @@
-@import "reset";
-@import "variables";
-@import "vendor/flexboxgrid/flexboxgrid";
+// @import "reset";
+@use "variables";
+@use "vendor/flexboxgrid/flexboxgrid";
 // @import 'vendor/slickslider/slick';
 
-@import "mixins";
-@import "utils";
+@use "mixins";
+@use "utils";
 
-@import "typography";
+@use "typography";
 
-@import "layout";
-@import "design-system";
+@use "layout";
+@use "design-system";
 
-@import "templates/home";
-@import "templates/project";
+@use "templates/home";
+@use "templates/project";
 
-@import "components/header";
-@import "components/footer";
-@import "components/cards";
-@import "components/content--landing";
-@import "components/content--studio";
+@use "components/header";
+@use "components/footer";
+@use "components/cards";
+@use "components/content--landing";
+@use "components/content--studio";
 
-@import "components/ui/marquee";
-@import "components/ui/mailjet";
-@import "components/ui/cookies";
+@use "components/ui/marquee";
+@use "components/ui/mailjet";
+@use "components/ui/cookies";

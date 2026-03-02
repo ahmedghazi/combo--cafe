@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+[data-theme="theme-xyz"] {
+  --app-height: 100vh;
+  /* --header-h: 43.5px; */
+  --color-bg: #fff;
+  --color-primary: #000;
+  --color-secondary: #fff;
+  --color-hover: #006d75;
+  --color-muted: #999999;
+  --color-accent: #8ea965;
+
+  --font-primary:
+    "NTBau-Regular", "Helvetica Neue", "HelveticaNeueRoman",
+    "HelveticaNeue-Roman", "Helvetica Neue Roman", "TeXGyreHerosRegular",
+    "Helvetica", "Arial", sans-serif;
+  --font-primary-mono:
+    "NTBau-Mono-Regular", "Helvetica Neue", "HelveticaNeueRoman",
+    "HelveticaNeue-Roman", "Helvetica Neue Roman", "TeXGyreHerosRegular",
+    "Helvetica", "Arial", sans-serif;
+  --font-secondary:
+    "ABCCamera-Medium", "Helvetica Neue", "HelveticaNeueRoman",
+    "HelveticaNeue-Roman", "Helvetica Neue Roman", "TeXGyreHerosRegular",
+    "Helvetica", "Arial", sans-serif;
+
+  --spacing-xs: 0.4em;
+  --spacing-sm: 0.625em;
+  --spacing-md: 1.25rem;
+  --spacing-lg: 1.875rem;
+  --spacing-50: 3.125rem;
+  --spacing-xl: 3.75rem;
+  --spacing-xxl: 6.25rem;
+
+  --spacing-m-md: 1.25rem;
+
+  --text-sm: 0.86666667rem;
+  --text-md: 1rem; /* old 17,5px new 16px */
+  --text-lg: 1.25rem;
+  --text-2lg: 1.571rem; /* old 26,25px new 22px */
+  --text-xl: 2.286rem; /* old 44px new 32px */
+
+  --text-m-sm: 0.86666667rem;
+  --text-m-md: 1.333rem;
+  --text-m-lg: 1.333rem;
+  --text-m-2lg: 1.667rem;
+  --text-m-xl: 1.917rem;
+  /*
+  xs: 8pt 10px
+  md: 12pt 16px
+  lg: 18pt 24px
+  xl: 30pt 40px
+  */
+
+  --cubic: cubic-bezier(0.775, 0, 0.17, 1.005);
+
+  --border-width: 1px;
+  --border: var(--border-width) solid;
+  --border-width-lg: 2px;
+  --border-lg: var(--border-width-lg) solid;
+
+  --gutter: 20px;
+
+  --screen-sm: 768px;
+  --screen-md: 1080px;
+  --screen-lg: 1441px;
+}
+
+@theme inline {
+  --app-height: var(--app-height);
+  --header-h: var(--header-h);
+  --color-bg: var(--color-bg);
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-hover: var(--color-hover);
+  --color-muted: var(--color-muted);
+  --color-accent: var(--color-accent);
+
+  --font-primary: var(--font-primary);
+  --font-primary-mono: var(--font-primary-mono);
+  --font-secondary: var(--font-secondary);
+
+  --spacing-xs: var(--spacing-xs);
+  --spacing-sm: var(--spacing-sm);
+  --spacing-md: var(--spacing-md);
+  --spacing-lg: var(--spacing-lg);
+  --spacing-50: var(--spacing-50);
+  --spacing-xl: var(--spacing-xl);
+  --spacing-xxl: var(--spacing-xxl);
+
+  --spacing-m-md: var(--spacing-m-md);
+
+  --text-sm: var(--text-sm);
+  --text-md: var(--text-md);
+  --text-lg: var(--text-lg);
+  --text-2lg: var(--text-2lg);
+  --text-xl: var(--text-xl);
+
+  --text-m-sm: var(--text-m-sm);
+  --text-m-md: var(--text-m-md);
+  --text-m-lg: var(--text-m-lg);
+  --text-m-2lg: var(--text-m-2lg);
+  --text-m-xl: var(--text-m-xl);
+  /*
+  xs: 8pt 10px
+  md: 12pt 16px
+  lg: 18pt 24px
+  xl: 30pt 40px
+  */
+
+  --cubic: var(--cubic);
+
+  --border-width: var(--border-width);
+  --border: var(--border-width) solid;
+  --border-width-lg: var(--border-width-lg);
+  --border-lg: var(--border-width-lg) solid;
+
+  --gutter: var(--gutter);
+
+  --screen-sm: var(--screen-sm);
+  --screen-md: var(--screen-md);
+  --screen-lg: var(--screen-lg);
+}
