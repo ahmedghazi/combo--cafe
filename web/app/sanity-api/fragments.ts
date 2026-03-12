@@ -257,7 +257,11 @@ export const listCardImageTextUI = `
 			...,
 			image{
 				...,
-				asset->
+				asset->,
+				image{
+					...,
+					asset->,
+				}
 			},
 			text{
 				${blockContent}
