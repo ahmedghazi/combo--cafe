@@ -1,6 +1,5 @@
 import { BlockContent, Figure } from "@/app/types/schema";
 import React from "react";
-import FigureUI from "./Figure";
 import { PortableText } from "next-sanity";
 import FigureComponent from "./Figure";
 import portableTextComponents from "@/app/sanity-api/portableTextComponents";
@@ -19,7 +18,7 @@ const Card = ({ image, title, tag, excerpt, text }: Props) => {
   return (
     <article className='card'>
       <div className='inner'>
-        {image && <FigureComponent asset={image.image} />}
+        {image && <FigureComponent asset={image.image} width={2000} />}
         <div className='content'>
           <div className='header'>
             {title && <h3>{title}</h3>}
