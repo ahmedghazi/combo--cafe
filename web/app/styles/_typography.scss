@@ -132,6 +132,10 @@ p,
       display: inline-block;
       margin-left: 0.4em;
     }
+    &:not(.btn--pill):hover {
+      color: inherit;
+      text-decoration: underline;
+    }
   }
   &.md\:text-2lg,
   &.headline {
