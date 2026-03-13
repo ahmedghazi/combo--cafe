@@ -127,6 +127,11 @@
             max-width: unset;
           }
         }
+        .text {
+          p:has(.text-center) {
+            text-align: center;
+          }
+        }
       }
     }
     &.module--texts-ui {
@@ -134,6 +139,7 @@
         text-align: left;
       }
     }
+
     &.module--text-image-ui {
       .inner {
         padding: var(--spacing-50);
